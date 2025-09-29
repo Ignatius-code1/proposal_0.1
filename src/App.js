@@ -39,7 +39,7 @@ function App() {
     return 'Are you ' + 'really '.repeat(noClickCount) + 'sure?';
   };
 
-  const yesButtonScale = Math.min(1 + noClickCount * 0.3, 5);
+  const yesButtonScale = noClickCount === 0 ? 1 : Math.min(1 + noClickCount * 2, 20);
 
   return (
     <div className="app">
@@ -113,9 +113,21 @@ function App() {
               <motion.button
                 className="yes-btn"
                 onClick={handleYes}
-                animate={{ scale: yesButtonScale }}
-                whileHover={{ scale: yesButtonScale * 1.1 }}
-                whileTap={{ scale: yesButtonScale * 0.95 }}
+                animate={{ 
+                  scale: yesButtonScale,
+                  width: noClickCount > 3 ? '100vw' : 'auto',
+                  height: noClickCount > 3 ? '100vh' : 'auto',
+                  position: noClickCount > 3 ? 'fixed' : 'relative',
+                  top: noClickCount > 3 ? 0 : 'auto',
+                  left: noClickCount > 3 ? 0 : 'auto',
+                  zIndex: noClickCount > 3 ? 9999 : 'auto'
+                }}
+                whileHover={{ scale: yesButtonScale * 1.05 }}
+                whileTap={{ scale: yesButtonScale * 0.98 }}
+                style={{
+                  fontSize: noClickCount > 3 ? '4rem' : '18px',
+                  borderRadius: noClickCount > 3 ? '0' : '25px'
+                }}
               >
                 Yes! 💕
               </motion.button>
