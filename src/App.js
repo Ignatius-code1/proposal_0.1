@@ -158,10 +158,10 @@ function App() {
               🎉 YES! 🎉
             </motion.h1>
             <div className="celebration">
-              <p>Congratulations {proposerName} & {proposeeName}! 💕</p>
+              <p>{proposerName} and {proposeeName} are now boyfriend and girlfriend! 💕</p>
               <div className="gif-container">
                 <img 
-                  src="https://media.giphy.com/media/26u4cqiYI30juCOGY/giphy.gif" 
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUIMrFRAPSNHnv_OyBpdNLYvSUu3LSatAtBA&s" 
                   alt="Cute celebration"
                   onError={(e) => {e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><text y="100" font-size="60">💕🎉💕</text></svg>'}}
                 />
