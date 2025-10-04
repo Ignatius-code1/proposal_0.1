@@ -1,6 +1,7 @@
 {
   "name": "proposal-website",
   "version": "1.0.0",
+  "main": "iggy__0.1.js",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
