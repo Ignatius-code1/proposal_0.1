@@ -273,6 +273,18 @@ function App() {
                       <small>Signature</small>
                     </div>
                   </div>
+                  
+                  <motion.button 
+                    className="download-btn"
+                    onClick={() => {
+                      // Simple screenshot approach
+                      window.print();
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Save Certificate 🖨️
+                  </motion.button>
                 </div>
               </div>
             </div>
