@@ -175,6 +175,97 @@ button:disabled {
   text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.5);
 }
 
+.letter-page {
+  max-width: 600px;
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  background: #f4f1de;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  overflow: hidden;
+  min-height: 400px;
+}
+
+.drag-instruction {
+  text-align: center;
+  padding: 20px;
+  color: #8b4b8c;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.envelope-string {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  cursor: grab;
+  z-index: 10;
+  user-select: none;
+}
+
+.envelope-string:active {
+  cursor: grabbing;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(135deg, #e07a5f, #d4a574);
+  transform-origin: top;
+  z-index: 2;
+}
+
+.letter-content {
+  padding: 80px 40px 40px;
+  background: #fefefe;
+  font-family: 'Georgia', serif;
+  line-height: 1.8;
+  color: #5d4e75;
+  min-height: 300px;
+}
+
+.letter-title {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 2em;
+  color: #d63384;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.letter-text {
+  font-size: 16px;
+  text-align: left;
+}
+
+.letter-text p {
+  margin-bottom: 15px;
+}
+
+.continue-btn {
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: linear-gradient(45deg, #ff69b4, #ff1493);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media (max-width: 600px) {
   .page {
     margin: 10px;
@@ -186,5 +277,9 @@ button:disabled {
   
   .button-container {
     flex-direction: column;
+  }
+  
+  .letter-content {
+    padding: 60px 20px 20px;
   }
 }
