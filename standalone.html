@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 A Special Question 💕</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #ffeef8, #ffe0f0, #ffd1e8);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .app {
+            position: relative;
+            overflow: hidden;
+        }
+        .page {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.3);
+            text-align: center;
+            max-width: 500px;
+            margin: 20px;
+            backdrop-filter: blur(10px);
+        }
+        h1, h2 {
+            color: #d63384;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(255, 182, 193, 0.3);
+        }
+        input {
+            padding: 15px;
+            border: 2px solid #ffb6c1;
+            border-radius: 25px;
+            font-size: 16px;
+            text-align: center;
+            background: rgba(255, 240, 245, 0.8);
+            margin: 10px;
+            width: 200px;
+        }
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            margin: 10px;
+        }
+        .yes-btn {
+            background: linear-gradient(45deg, #32cd32, #228b22);
+            transition: all 0.3s ease;
+        }
+        .no-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            transition: all 0.3s ease;
+        }
+        .hidden { display: none; }
+        .celebration img {
+            max-width: 200px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <div id="loading" class="page">
+            <h1>💕 A Special Question 💕</h1>
+            <input type="text" id="proposer" placeholder="Proposer's Name">
+            <input type="text" id="proposee" placeholder="Proposee's Name">
+            <button onclick="startProposal()">Start 💖</button>
+        </div>
+
+        <div id="story" class="page hidden">
+            <h2>Once upon a time... 📖</h2>
+            <p id="storyText"></p>
+            <button onclick="showQuestions()">Proceed to Surprise ✨</button>
+        </div>
+
+        <div id="questions" class="page hidden">
+            <h2 id="questionText"></h2>
+            <button id="yesBtn" class="yes-btn" onclick="handleYes()">Yes! 💕</button>
+            <button id="noBtn" class="no-btn" onclick="handleNo()">No</button>
+        </div>
+
+        <div id="surprise" class="page hidden">
+            <h1>🎉 YES! 🎉</h1>
+            <div class="celebration">
+                <p id="finalText"></p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUIMrFRAPSNHnv_OyBpdNLYvSUu3LSatAtBA&s" alt="Cute celebration">
+                <div>Love wins! 💖✨</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let proposerName = '';
+        let proposeeName = '';
+        let questionIndex = 0;
+        let noClickCount = 0;
+        
+        const questions = [
+            'Do you like {proposer}?',
+            'Do you love {proposer}?',
+            'Will {proposee} take {proposer} as your partner by shared vows?'
+        ];
+
+        function startProposal() {
+            proposerName = document.getElementById('proposer').value;
+            proposeeName = document.getElementById('proposee').value;
+            
+            if (proposerName && proposeeName) {
+                const audio = new Audio('the night we met - lord huron (slowed n reverb) - starclouds.mp3');
+                audio.loop = true;
+                audio.volume = 0.3;
+                audio.play().catch(e => console.log('Audio autoplay blocked'));
+                
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('story').classList.remove('hidden');
+                
+                document.getElementById('storyText').innerHTML = 
+                    `There was someone special named <strong>${proposerName}</strong> who had been thinking about <strong>${proposeeName}</strong> a lot lately. Every day, every moment, every heartbeat reminded them of how amazing you are. Today, ${proposerName} wants to ask you something very important... 💕`;
+            }
+        }
+
+        function showQuestions() {
+            document.getElementById('story').classList.add('hidden');
+            document.getElementById('questions').classList.remove('hidden');
+            updateQuestion();
+        }
+
+        function updateQuestion() {
+            const question = questions[questionIndex]
+                .replace('{proposer}', proposerName)
+                .replace('{proposee}', proposeeName);
+            document.getElementById('questionText').textContent = question;
+        }
+
+        function handleYes() {
+            if (questionIndex < questions.length - 1) {
+                questionIndex++;
+                noClickCount = 0;
+                updateQuestion();
+                resetButtons();
+            } else {
+                document.getElementById('questions').classList.add('hidden');
+                document.getElementById('surprise').classList.remove('hidden');
+                document.getElementById('finalText').textContent = 
+                    `${proposerName} and ${proposeeName} are now boyfriend and girlfriend! 💕`;
+            }
+        }
+
+        function handleNo() {
+            noClickCount++;
+            const yesBtn = document.getElementById('yesBtn');
+            const noBtn = document.getElementById('noBtn');
+            
+            // Make Yes button bigger
+            const scale = Math.min(1 + noClickCount * 0.3, 3);
+            yesBtn.style.transform = `scale(${scale})`;
+            
+            // Make No button smaller and add "really"
+            const noScale = Math.max(1 - noClickCount * 0.1, 0.3);
+            noBtn.style.transform = `scale(${noScale})`;
+            
+            if (noClickCount === 1) {
+                noBtn.textContent = 'Are you sure?';
+            } else {
+                noBtn.textContent = 'Are you ' + 'really '.repeat(noClickCount - 1) + 'sure?';
+            }
+            
+            // After 4 clicks, make Yes fill screen
+            if (noClickCount > 3) {
+                yesBtn.style.position = 'fixed';
+                yesBtn.style.top = '0';
+                yesBtn.style.left = '0';
+                yesBtn.style.width = '100vw';
+                yesBtn.style.height = '100vh';
+                yesBtn.style.fontSize = '4rem';
+                yesBtn.style.borderRadius = '0';
+                yesBtn.style.zIndex = '9999';
+            }
+        }
+
+        function resetButtons() {
+            const yesBtn = document.getElementById('yesBtn');
+            const noBtn = document.getElementById('noBtn');
+            
+            yesBtn.style.transform = 'scale(1)';
+            yesBtn.style.position = 'relative';
+            yesBtn.style.width = 'auto';
+            yesBtn.style.height = 'auto';
+            yesBtn.style.fontSize = '18px';
+            yesBtn.style.borderRadius = '25px';
+            
+            noBtn.style.transform = 'scale(1)';
+            noBtn.textContent = 'No';
+        }
+    </script>
+</body>
+</html>
