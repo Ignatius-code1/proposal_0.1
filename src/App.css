@@ -682,3 +682,45 @@ button:disabled {
     font-size: 14px;
   }
 }
+
+@media (min-width: 601px) {
+  .certificate-page {
+    overflow-y: visible;
+  }
+
+  .certificate {
+    padding: 60px;
+    min-height: auto;
+  }
+
+  .certificate-border {
+    padding: 50px;
+    overflow: visible;
+  }
+
+  .certificate-title {
+    font-size: 3em;
+  }
+
+  .certificate-text {
+    font-size: 18px;
+  }
+
+  .certificate-icon img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .signature-line {
+    font-size: 24px;
+  }
+
+  .signature-label {
+    font-size: 20px;
+  }
+
+  .download-btn {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+}
