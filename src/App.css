@@ -612,44 +612,70 @@ button:disabled {
     margin: 10px;
     padding: 20px;
   }
-  
+
   h1 { font-size: 2em; }
   h2 { font-size: 1.5em; }
-  
+
   .button-container {
     flex-direction: column;
   }
-  
+
   .letter-content {
     padding: 60px 20px 20px;
   }
-  
+
   .letter-title {
     font-size: 2em;
   }
-  
+
   .letter-text {
     font-size: 14px;
   }
-  
+
   .certificate-page {
     padding: 10px;
+    min-height: auto;
   }
-  
+
   .certificate {
     padding: 20px;
+    aspect-ratio: auto;
+    height: auto;
   }
-  
+
   .certificate-border {
     padding: 15px;
+    height: auto;
   }
-  
+
   .certificate-title {
-    font-size: 2.5em;
+    font-size: 2em;
   }
-  
+
+  .certificate-text {
+    font-size: 16px;
+  }
+
+  .certificate-icon img {
+    width: 120px;
+    height: 120px;
+  }
+
   .signatures {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .signature-line {
+    font-size: 20px;
+  }
+
+  .signature-label {
+    font-size: 16px;
+  }
+
+  .download-btn {
+    padding: 10px 20px;
+    font-size: 14px;
   }
 }
