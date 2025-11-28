@@ -2,84 +2,6 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 
-const LetterPage = ({ proposerName, proposeeName, onContinue }) => {
-  const [dragY, setDragY] = useState(0);
-  const [isOpened, setIsOpened] = useState(false);
-  
-  const handleDrag = (event, info) => {
-    const newY = Math.max(0, Math.min(100, info.point.y / 3));
-    setDragY(newY);
-    if (newY > 60) {
-      setIsOpened(true);
-    }
-  };
-  
-  return (
-    <motion.div
-      key="letter"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -50 }}
-      className="page letter-page"
-    >
-      <div className="envelope">
-        <div className="drag-instruction">
-          {!isOpened ? "Pull the string down to open 👇" : ""}
-        </div>
-        {!isOpened && (
-          <motion.div 
-            className="envelope-string"
-            drag="y"
-            dragConstraints={{ top: 0, bottom: 100 }}
-            onDrag={handleDrag}
-            whileHover={{ scale: 1.1 }}
-          >
-            📎
-          </motion.div>
-        )}
-        <motion.div 
-          className="envelope-flap"
-          animate={{ rotateX: dragY > 30 ? -180 : 0 }}
-          transition={{ duration: 0.3 }}
-        />
-        <motion.div 
-          className="letter-content"
-          animate={{ 
-            y: isOpened ? 0 : 100, 
-            opacity: isOpened ? 1 : 0 
-          }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="letter-title">My dearest {proposeeName} 🌹</h2>
-          <div className="letter-text">
-            <p>This isn't just a recap; it's a look back at the moments that quietly changed everything for me.</p>
-            <p>From the first second my eyes landed on you outside the church that day, something inside me just knew I had to get closer. You felt like a warmth I needed. I know I was awkward, rambling through my greetings, and when I thought you weren't interested, I brushed it off—but the truth is, you had already left a mark on my heart.</p>
-            <p>For months and years after, seeing you with Mitchell and Kim became my private little comfort. I'd play out entire scenarios in my mind—us laughing, the four of us just hanging out—especially during my quiet walks. I admit, I'm an overthinker, and my shyness told me that this dream was impossible, a beautiful, torturous impossibility.</p>
-            <p><strong>Then, you texted me.</strong></p>
-            <p>That moment—I was speechless. A wave of 'No way, did that just happen?' washed over me! Even when we paused talking for a while, I knew deep down... our story wasn't over. It was only just beginning.</p>
-            <p><strong>This New Space</strong></p>
-            <p>...I felt seen, truly seen, for the first time in a long time. That text, it wasn't a world-stopping event for everyone else, but to me, it ignited a spark I honestly didn't know I had. I never thought I could feel this way.</p>
-            <p>The fact that you would call me late at night, choosing to spend your quiet, personal time talking to me instead of anything else—it felt like a fortune. Honestly, for a moment, it felt like I was wealthy. Those random photos, the videos, and your voice notes became the highlight reel of my August 2024 holiday. They were the absolute best moments.</p>
-            <p>Then, just when I thought I'd seen all the good things you had to offer, you invited me to your prom. To be honest, I thought you'd have fun, the typical kind of fun that happens at a big party. I imagined the night getting crazy, as it often does for girls who get that chance.</p>
-            <p>But that's where I was completely wrong, in the most wonderful way.</p>
-            <p>You did have fun, yes, but not in the way I expected. You showed me what it means to be seen and to truly matter to someone. You chose to spend the night with me. You were physically in South Africa, celebrating your prom, and I was here in Kenya, yet we had a blast. Correct me if I'm wrong, but I truly believe we had more fun together than most of the people there who were actually standing side-by-side.</p>
-            <p>You redefined what "together" means.</p>
-            <p>This is more than just a feeling; it's a reality we built across a continent. What is this new, amazing space we've found, where distance just melts away when we talk?</p>
-          </div>
-          <motion.button 
-            className="continue-btn"
-            onClick={onContinue}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Continue to the Question 💕
-          </motion.button>
-        </motion.div>
-      </div>
-    </motion.div>
-  );
-};
-
 function App() {
   const [currentPage, setCurrentPage] = useState('loading');
   const [proposerName, setProposerName] = useState('');
@@ -242,7 +164,7 @@ function App() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 2, duration: 1 }}
               >
-                <h2 className="letter-title">My dearest {proposeeName} 🌹</h2>
+                <h2 className="letter-title">🌹 My dearest {proposeeName} 🌹</h2>
                 <div className="letter-text">
                   <p>This isn't just a recap; it's a look back at the moments that quietly changed everything for me.</p>
                   
@@ -251,23 +173,23 @@ function App() {
                   <p>For months and years after, seeing you with Mitchell and Kim became my private little comfort. I'd play out entire scenarios in my mind—us laughing, the four of us just hanging out—especially during my quiet walks. I admit, I'm an overthinker, and my shyness told me that this dream was impossible, a beautiful, torturous impossibility.</p>
                   
                   <p><strong>Then, you texted me.</strong></p>
-                  
+
                   <p>That moment—I was speechless. A wave of 'No way, did that just happen?' washed over me! Even when we paused talking for a while, I knew deep down... our story wasn't over. It was only just beginning.</p>
-                  
+
                   <div className="letter-section">
                     <h3>This New Space</h3>
                     <p>I felt seen, truly seen, for the first time in a long time. That text, it wasn't a world-stopping event for everyone else, but to me, it ignited a spark I honestly didn't know I had. I never thought I could feel this way.</p>
-                    
+
                     <p>The fact that you would call me late at night, choosing to spend your quiet, personal time talking to me instead of anything else—it felt like a fortune. Honestly, for a moment, it felt like I was wealthy. Those random photos, the videos, and your voice notes became the highlight reel of my August 2024 holiday. They were the absolute best moments.</p>
-                    
+
                     <p>Then, just when I thought I'd seen all the good things you had to offer, you invited me to your prom. To be honest, I thought you'd have fun, the typical kind of fun that happens at a big party. I imagined the night getting crazy, as it often does for girls who get that chance.</p>
-                    
+
                     <p>But that's where I was completely wrong, in the most wonderful way.</p>
-                    
+
                     <p>You did have fun, yes, but not in the way I expected. You showed me what it means to be seen and to truly matter to someone. You chose to spend the night with me. You were physically in South Africa, celebrating your prom, and I was here in Kenya, yet we had a blast. Correct me if I'm wrong, but I truly believe we had more fun together than most of the people there who were actually standing side-by-side.</p>
-                    
+
                     <p><em>You redefined what "together" means.</em></p>
-                    
+
                     <p>This is more than just a feeling; it's a reality we built across a continent. What is this new, amazing space we've found, where distance just melts away when we talk?</p>
                   </div>
 
@@ -281,7 +203,7 @@ function App() {
                   <div className="letter-section">
                     <h3>A Defining Easter</h3>
                     <p>However, the moments that truly defined this year were the ones we shared, illuminated by your presence. The Easter we spent together is etched in my soul. I had never known such profound peace and comfort radiating from another human being until you. From the instant I sat beside you to the gentle moment we prayed together, I cherished every single breath. All my troubles, all my accumulating stress, dissolved completely—vanquished by the quiet strength of your aura.</p>
-                    <p>The precise moment I knew, with absolute certainty, that I desired you by my side for a lifetime was when you offered me the grace of prayer. It may seem insignificant to others, but at that specific, holy juncture, I realized that good souls still exist in this world, and I was blessed to have one placed in my life. Though my words were merely a heartfelt whisper and a mumble 🥲, I relished every single second of that connection.</p>
+                    <p>The precise moment I knew, with absolute certainty, that I desired you by my side for a lifetime was when you offered me the grace of prayer. It may seem insignificant to others, but at that specific, holy juncture, I realized that good souls still exist in this world, and I was blessed to have one placed in my life. Though my words were merely a heartfelt whisper and a mumble , I relished every single second of that connection.</p>
                     <p>My greatest regret remains the following day: I failed to meet you, enduring a soaking rain and an unwelcome encounter, while you were left hungry. To this day, the apology for that failing remains heavy on my heart.</p>
                   </div>
                 </div>
