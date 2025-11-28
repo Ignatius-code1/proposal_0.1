@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 
@@ -17,6 +17,10 @@ function App() {
 
   const handleStart = () => {
     if (proposerName && proposeeName) {
+      if (!proposerName.toLowerCase().includes('ignatius')) {
+        setCurrentPage('lovelyDay');
+        return;
+      }
       if (!audioRef.current) {
         audioRef.current = new Audio('/the night we met - lord huron (slowed n reverb) - starclouds.mp3');
         audioRef.current.loop = true;
@@ -97,6 +101,19 @@ function App() {
                 Start 💖
               </button>
             </div>
+          </motion.div>
+        )}
+
+        {currentPage === 'lovelyDay' && (
+          <motion.div
+            key="lovelyDay"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            className="page"
+          >
+            <h1>Have a lovely day! 🌸</h1>
+            <p className="story-text">Wishing you all the best and a wonderful time ahead. 💕</p>
           </motion.div>
         )}
 
