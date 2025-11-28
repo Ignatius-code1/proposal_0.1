@@ -270,6 +270,20 @@ function App() {
                     
                     <p>This is more than just a feeling; it's a reality we built across a continent. What is this new, amazing space we've found, where distance just melts away when we talk?</p>
                   </div>
+
+                  <div className="letter-section">
+                    <h3>🌹 The Whole Heart: A Chronicle of Love and Faith 🌹</h3>
+                    <p>I remember departing for my exams, knowing that you remained here, a constant, beautiful force. You petitioned the heavens for my success, weaving my name into your nightly prayers with a fervor that surpassed those I knew best.</p>
+                    <p>Upon the conclusion of that intense chapter, nothing truly mattered except the joy of my good result and, more significantly, the holidays that followed. Seeing you then—so elegant and radiant—filled me with an excitement that made Sundays sacred. They were the one, sure appointment where I could finally see your face and feel the shelter of your embrace 🌹.</p>
+                    <p>The subsequent year brought a necessary separation: you had to return to your studies. Though I was physically absent and could not be there to support you, I carry the deep conviction that my prayers traveled with you, providing guidance and protection every step of the way.</p>
+                  </div>
+
+                  <div className="letter-section">
+                    <h3>A Defining Easter</h3>
+                    <p>However, the moments that truly defined this year were the ones we shared, illuminated by your presence. The Easter we spent together is etched in my soul. I had never known such profound peace and comfort radiating from another human being until you. From the instant I sat beside you to the gentle moment we prayed together, I cherished every single breath. All my troubles, all my accumulating stress, dissolved completely—vanquished by the quiet strength of your aura.</p>
+                    <p>The precise moment I knew, with absolute certainty, that I desired you by my side for a lifetime was when you offered me the grace of prayer. It may seem insignificant to others, but at that specific, holy juncture, I realized that good souls still exist in this world, and I was blessed to have one placed in my life. Though my words were merely a heartfelt whisper and a mumble 🥲, I relished every single second of that connection.</p>
+                    <p>My greatest regret remains the following day: I failed to meet you, enduring a soaking rain and an unwelcome encounter, while you were left hungry. To this day, the apology for that failing remains heavy on my heart.</p>
+                  </div>
                 </div>
                 
                 <motion.button 
