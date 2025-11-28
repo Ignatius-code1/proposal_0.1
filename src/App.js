@@ -13,7 +13,7 @@ function App() {
   const questions = [
     `Since the first night that you and ${proposerName} slept knowing that each other existed and that you wouldn't mind them tagging along your life, have you enjoyed their company?`,
     `When you say ${proposerName}'s name, is there a weight behind it? Is this more than just a comfort or a friend? If I were to truly ask you, right now, does this feeling have a depth that will not end?`,
-    `Since ${proposeeName} came near, the world has a different color. It feels like a beautiful song ${proposerName} has been waiting to hear. Will ${proposeeName} be able to make this feeling real, and be ${proposerName}'s girl?`,];
+    `Since ${proposeeName} came near, the world has a different color. It feels like a beautiful song ${proposerName} has been waiting to hear. Will ${proposeeName} be able to make this feeling real, and be ${proposerName}'s girlfriend?`,];
 
   const handleStart = () => {
     if (proposerName && proposeeName) {
