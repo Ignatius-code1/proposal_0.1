@@ -54,7 +54,7 @@ function App() {
       setQuestionIndex(questionIndex + 1);
       setNoClickCount(0);
     } else {
-      setCurrentPage('surprise');
+      setIsConfettiActive(true);
     }
   };
 
