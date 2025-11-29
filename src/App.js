@@ -1,5 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Confetti from 'react-confetti';
+import { useWindowSize } from 'react-use';
 import './App.css';
 
 function App() {
@@ -8,7 +10,24 @@ function App() {
   const [proposeeName, setProposeeName] = useState('');
   const [questionIndex, setQuestionIndex] = useState(0);
   const [noClickCount, setNoClickCount] = useState(0);
+  const [isConfettiActive, setIsConfettiActive] = useState(false);
   const audioRef = useRef(null);
+  const { width, height } = useWindowSize();
+
+  useEffect(() => {
+    if (questionIndex === questions.length - 1) {
+      setIsConfettiActive(true);
+    }
+  }, [questionIndex]);
+
+  useEffect(() => {
+    if (isConfettiActive) {
+      const timer = setTimeout(() => {
+        setIsConfettiActive(false);
+      }, 10000); // Confetti for 10 seconds then fade out
+      return () => clearTimeout(timer);
+    }
+  }, [isConfettiActive]);
 
   const questions = [
     `Since the first night that you and ${proposerName} slept knowing that each other existed and that you wouldn't mind them tagging along your life, have you enjoyed their company?`,
@@ -68,6 +87,15 @@ function App() {
 
   return (
     <div className="app">
+      {isConfettiActive && (
+        <Confetti
+          width={width}
+          height={height}
+          numberOfPieces={200}
+          recycle={false}
+          run={isConfettiActive}
+        />
+      )}
       <div className="hearts-bg">
         {[...Array(20)].map((_, i) => (
           <div key={i} className={`heart heart-${i}`}>💖</div>

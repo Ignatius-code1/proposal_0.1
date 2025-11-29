@@ -4,10 +4,12 @@
   "main": "iggy__0.1.js",
   "private": true,
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "framer-motion": "^10.16.4",
-    "react-scripts": "5.0.1"
+    "react": "^18.2.0",
+    "react-confetti": "^6.4.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "react-use": "^17.6.0"
   },
   "scripts": {
     "start": "react-scripts start",
