@@ -206,6 +206,20 @@ function App() {
                     <p>The precise moment I knew, with absolute certainty, that I desired you by my side for a lifetime was when you offered me the grace of prayer. It may seem insignificant to others, but at that specific, holy juncture, I realized that good souls still exist in this world, and I was blessed to have one placed in my life. Though my words were merely a heartfelt whisper and a mumble , I relished every single second of that connection.</p>
                     <p>My greatest regret remains the following day: I failed to meet you, enduring a soaking rain and an unwelcome encounter, while you were left hungry. To this day, the apology for that failing remains heavy on my heart.</p>
                   </div>
+
+                  <div className="letter-section">
+                    <h3>❤️ An Unveiling on the 27th❤️</h3>
+                    <p>That day, Thursday, November 27th, 2025, was truly unique—I wish I could invent a new word just to describe the feeling.</p>
+                    <p>Your visit, even under the guise of giving me a skincare routine, was incredibly moving. Every single touch we shared, I cherished it deeply. I have never felt such genuine love and care emanating from anywhere other than the bubble we were in.</p>
+                    <p>I especially enjoyed making you smile, particularly when I was perfecting that lip gloss application. I completely lost myself in your melting smile and laughter; it wiped away every trace of worry I had.</p>
+                    <p>Then you did the unthinkable: you gave me the best embrace I've ever had. I think you saw something on my cheeks that made you decide to plant those light, sweet kisses there.</p>
+                    <p>The moment I realized this was truly happening was when you held my face in your hands. I couldn't resist; I just placed my hands on your waist and leaned in for what became the most incredibly romantic moment of my nineteen years.</p>
+                    <p>Thank you. Thank you for being the one who made that moment happen.</p>
+                    <p>I know we've already shared many great times, but I want to leave room for the even better ones I have a strong feeling are coming soon. Thank you for everything. I truly hope that one day I may be approved by your parents and recognized by your family, just as you have been by mine.</p>
+                    <p>I love you ❤️.</p>
+                  </div>
+
+                  <p className="letter-salutation">With all my love and endless devotion,<br />{proposerName}</p>
                 </div>
                 
                 <motion.button 
