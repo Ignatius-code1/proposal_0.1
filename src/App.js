@@ -15,16 +15,11 @@ function App() {
   const { width, height } = useWindowSize();
 
   useEffect(() => {
-    if (questionIndex === questions.length - 1) {
-      setIsConfettiActive(true);
-    }
-  }, [questionIndex]);
-
-  useEffect(() => {
     if (isConfettiActive) {
       const timer = setTimeout(() => {
         setIsConfettiActive(false);
-      }, 10000); // Confetti for 10 seconds then fade out
+        setCurrentPage('surprise');
+      }, 10000); // Confetti for 10 seconds then fade out and reveal certificate
       return () => clearTimeout(timer);
     }
   }, [isConfettiActive]);
@@ -91,7 +86,7 @@ function App() {
         <Confetti
           width={width}
           height={height}
-          numberOfPieces={200}
+          numberOfPieces={1000}
           recycle={false}
           run={isConfettiActive}
         />
